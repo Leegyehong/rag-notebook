@@ -1,0 +1,13 @@
+services:
+  rag-lab:
+    build: .
+    container_name: rag_notebook_env
+    volumes:
+      - .:/app
+    ports:
+      - "8888:8888"
+      - "8000:8000" # 유비콘(API)용 대비 포트
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
